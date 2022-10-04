@@ -18,10 +18,16 @@ export default class Tasks {
     const item = document.createElement('li');
     item.classList.add('list-item');
     item.setAttribute('data-index', taskObj.index);
+    item.innerHTML = `<button><i></i></button>
+    <input type="text" value="${taskObj.description}" class="task-input">
+    <i class="fa-solid fa-ellipsis-vertical trash-can"></i>`;
+    const button = item.querySelector('button');
+    const checkbox = item.querySelector('button>i');
+
     if (taskObj.completed === false) {
-      item.innerHTML = `<button><i class="fa-regular fa-square checkbox"></i></button>
-        <input type="text" value="${taskObj.description}" class="task-input">
-        <i class="fa-solid fa-ellipsis-vertical trash-can"></i>`;
+      checkbox.classList.add('fa-regular');
+      checkbox.classList.add('fa-square');
+      checkbox.classList.add('checkbox');
 
       const taskInput = item.querySelector('.task-input');
       const trashCan = item.querySelector('.trash-can');
@@ -67,12 +73,18 @@ export default class Tasks {
         }
       });
     } else {
-      item.innerHTML = `<button><i class="fa-regular fa-square-check checkbox checkbox-ticked"></i></button>
-        <span class="task-span">${taskObj.description}</span>
-        <i class="fa-solid fa-ellipsis-vertical trash-can"></i>`;
+      checkbox.classList.add('fa-regular');
+      checkbox.classList.add('fa-square-check');
+      checkbox.classList.add('checkbox');
+      checkbox.classList.add('checkbox-ticked');
+      
+      const span = document.createElement('span'); 
+      span.innerHTML = `${taskObj.description}`
+      span.classList.add('task-span');
+      const input = item.querySelector('input'); 
+      item.replaceChild(span, input);
     }
 
-    const checkbox = item.querySelector('.checkbox');
     const index = parseInt(item.getAttribute('data-index'), 10);
     checkbox.addEventListener('click', () => {
       updateStatus(index, this.tasksList);
