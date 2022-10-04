@@ -2,7 +2,6 @@ import './style.css';
 import Tasks from './functionalities.js';
 
 const tasksList = new Tasks();
-
 const newTaskInput = document.querySelector('.enter-task');
 const tasksUL = document.querySelector('.tasks-list');
 const clearBtn = document.querySelector('.clear-btn>button');
