@@ -1,4 +1,4 @@
-//import './style.css';
+import './style.css';
 import Tasks from './functionalities.js';
 
 const tasksList = new Tasks();
