@@ -1,4 +1,4 @@
-import './style.css';
+//import './style.css';
 import Tasks from './functionalities.js';
 
 const tasksList = new Tasks();
@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
 });
 
 newTaskInput.addEventListener('keypress', (e) => {
-  if (!e) e = window.event;
   const keyCode = e.code || e.key;
   if (keyCode === 'Enter') {
     e.preventDefault();
