@@ -59,6 +59,10 @@ li {
   border-bottom: 1px solid #eee;
 }
 
+.header > h1 {
+  font-size: 18px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
