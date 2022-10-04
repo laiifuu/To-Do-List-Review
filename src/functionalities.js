@@ -21,7 +21,6 @@ export default class Tasks {
     item.innerHTML = `<button><i></i></button>
     <input type="text" value="${taskObj.description}" class="task-input">
     <i class="fa-solid fa-ellipsis-vertical trash-can"></i>`;
-    const button = item.querySelector('button');
     const checkbox = item.querySelector('button>i');
 
     if (taskObj.completed === false) {
@@ -77,11 +76,11 @@ export default class Tasks {
       checkbox.classList.add('fa-square-check');
       checkbox.classList.add('checkbox');
       checkbox.classList.add('checkbox-ticked');
-      
-      const span = document.createElement('span'); 
-      span.innerHTML = `${taskObj.description}`
+
+      const span = document.createElement('span');
+      span.innerHTML = `${taskObj.description}`;
       span.classList.add('task-span');
-      const input = item.querySelector('input'); 
+      const input = item.querySelector('input');
       item.replaceChild(span, input);
     }
 
