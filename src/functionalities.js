@@ -7,9 +7,9 @@ export default class Tasks {
 
   removeTask(index) {
     this.tasksList.splice(index, 1);
-    for (let i = index; i < this.tasksList.length; i += 1) {
-      this.tasksList[i].index = i;
-    }
+    this.tasksList.forEach((task, i) => {
+      task.index = i;
+    });
     localStorage.setItem('tasks', JSON.stringify(this.tasksList));
     this.updateDisplay();
   }
